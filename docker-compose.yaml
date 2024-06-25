@@ -1,0 +1,22 @@
+services:
+  nginx:
+    image: nginx:1.27.0-alpine
+    container_name: nginx_nodejs_c
+    ports:
+      - 8080:80
+
+  nodejs-app:
+    image: nodejs-app:1.0.0
+    container_name: nodejs_app_c
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - ${PORT_OUT}:${PORT}
+    volumes:
+      - ./src:/app:ro
+      - /app/node_modules
+    environment:
+      - PORT=${PORT}
+    #env_file:
+    #  - ./.env
