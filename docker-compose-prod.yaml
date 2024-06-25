@@ -1,0 +1,5 @@
+services:
+  nodejs-app:
+    environment:
+      - NODE_ENV=production
+    command: node index.js

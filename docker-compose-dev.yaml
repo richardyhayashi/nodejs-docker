@@ -1,0 +1,14 @@
+services:
+  nginx:
+    image: nginx:1.27.0-alpine
+    container_name: nginx_nodejs_c
+    ports:
+      - 8080:80
+
+  nodejs-app:
+    volumes:
+      - ./src:/app:ro
+      - /app/node_modules
+    environment:
+      - NODE_ENV=development
+    command: npm run dev
