@@ -19,5 +19,5 @@ COPY /src .
 EXPOSE $PORT
 
 # Start the app.
-CMD ["node", "index.js"]
-CMD ["npm", "run", "dev"]
+#CMD ["node", "index.js"]
+#CMD ["npm", "run", "dev"]
